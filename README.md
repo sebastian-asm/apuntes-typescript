@@ -19,6 +19,7 @@ TypeScript permite crear nuevos tipos de datos como: interfaces, genéricos y tu
 - **Enun**: ayuda a trabajar con valores que tienen sentido semántico y fácil de leer
 - **Void**: es una forma de indicar que no hay un valor de retorno
 - **Never**: indica que algo, por ejemplo una función, no debe terminar de manera exitosa sino con un error
+- **Type**: palabra reservada para definir un tipo, o sea, asignar reglas o "contratos" a un objeto o variable que debe cumplir
 
 Una función puede recibir parámetros opcionales especificados con el símbolo _?_, estos valores opcionales siempre debe ir al final. También se pueden indicar valores por default con el símbolo _=_. Se pueden capturar parámetros de manera indefinida mediante la sintáxis _rest_ (...).
 

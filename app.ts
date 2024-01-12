@@ -38,3 +38,27 @@ function fullName(firstName: string, lastName?: string, ...args: (string | numbe
 
 const user = fullName('Seba', 'Sanchez', 40, 'Desarrollador')
 // console.log({ user })
+
+// Type
+type Hero = {
+  name: string
+  age: number
+  powers: string[]
+  getName?: () => string
+}
+
+const flash: Hero = {
+  name: 'Barry Allen',
+  age: 24,
+  powers: ['Velocidad', 'Viajar en el tiempo']
+}
+
+const superman: Hero = {
+  name: 'Clark Kent',
+  age: 60,
+  powers: ['Velocidad'],
+  getName() {
+    return this.name
+  }
+}
+// console.log({ flash, superman })
