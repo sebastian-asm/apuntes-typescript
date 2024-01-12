@@ -1,15 +1,37 @@
 # Apuntes TypeScript
 
+[Documentación](https://www.typescriptlang.org/)
+
 Super set de JavaScript, expandiendo funcionalidades como agregando tipado estricto, interfaces, etc. También permite utilizar las últimas caracteristícas y traducirlas al estandar de JS que se necesitaría correr.
 
 Instalación a nivel global: `pnpm add -g typescript`
 
-### Comandos básicos
+## Comandos básicos
 
 - `tsc --init`: crear archivo tsconfig.json (archivo de configuración de TS)
 - `tsc -w`: modo observador de cambios
 
-### Tipos de datos
+### tsconfig.json
+
+Para poder ver correctamente alguna línea de error en la consola del navegador por estar utilizando TS, se puede activar la opción _sourceMap_ para generar un archivo .map, esto nos ayudará para depurar mucho mejor nuestro código. Estos archivos solo deberían estar en el modo dev.
+
+Sin .map
+
+![Sin .map](assets/screenshots/image.png)
+
+Con .map
+
+![Con .map](assets/screenshots/image-1.png)
+
+Con la opción _removeComments_ evitaremos pasar nuestros comentarios de TS al archivo de salida de JS para así ahorrar unos bytes del lado del cliente.
+
+Comúnmente, al momento de hacer la transpilación del código todo quedaría en un solo archivo JS y para poder especificiar ese archivo se utiliza la opción _outFile_ pero esta configuración solo permite module _AMD_ o _System_.
+
+La opción _exclude_ permite indicar las rutas donde se evitará hacer seguimientos de los archivos TS.
+
+[Documentación](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+
+## Tipos de datos
 
 TypeScript permite crear nuevos tipos de datos como: interfaces, genéricos y tuplas.
 

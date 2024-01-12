@@ -61,4 +61,4 @@ const superman: Hero = {
     return this.name
   }
 }
-// console.log({ flash, superman })
+console.log({ flash, superman })
