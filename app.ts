@@ -37,7 +37,7 @@ function fullName(firstName: string, lastName?: string, ...args: (string | numbe
 }
 
 const user = fullName('Seba', 'Sanchez', 40, 'Desarrollador')
-// console.log({ user })
+console.log({ user })
 
 // Type
 type Hero = {
@@ -62,3 +62,66 @@ const superman: Hero = {
   }
 }
 console.log({ flash, superman })
+
+// Clases
+class Avenger {
+  // private name: string
+  // public team: string
+  // public realName?: string
+  // static age: number
+
+  // constructor(name: string, team: string, realName?: string) {
+  //   this.name = name
+  //   this.team = team
+  //   this.realName = realName
+  // }
+
+  // Forma abreviada
+  static age: number = 30
+  // static no se puede definir directamente dentro del constructor
+  constructor(private name: string, public realName: string, public team?: string) {}
+
+  // Por default los métodos son públicos
+  bio() {
+    return `${this.name} | ${this.team}`
+  }
+}
+
+const antman = new Avenger('Antman', 'Capitan', 'Scoot Lang')
+console.log({ antman, age: Avenger.age })
+console.log(antman.bio())
+
+class XMen extends Avenger {
+  constructor(name: string, realName: string, public isMutant: boolean) {
+    super(name, realName)
+  }
+
+  get fullName() {
+    return `El nombre real es: ${this.realName}`
+  }
+
+  set fullName(name: string) {
+    if (name.length < 3) throw new Error('El nombre debe tener más de 3 letras')
+    this.realName = name
+  }
+}
+
+const wolverine = new XMen('Wolverine', 'Logan', true)
+console.log({ wolverine })
+console.log(wolverine.fullName)
+wolverine.fullName = 'Test'
+console.log({ wolverine })
+
+// Clase abstracta
+abstract class Mutante {
+  constructor(public name: string, public realName: string) {}
+}
+
+class Xmen2 extends Mutante {}
+const cyclops = new Xmen2('Cyclops', 'Scott')
+console.log({ cyclops })
+
+const printName = (character: Mutante) => {
+  console.log(character.realName)
+}
+printName(cyclops)

@@ -29,7 +29,7 @@ Comúnmente, al momento de hacer la transpilación del código todo quedaría en
 
 La opción _exclude_ permite indicar las rutas donde se evitará hacer seguimientos de los archivos TS.
 
-[Documentación](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+[Documentación de tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
 ## Tipos de datos
 
@@ -50,3 +50,16 @@ function demo(firstname: string, isAdmin: boolean = false, lastName?: string, ..
 ```
 
 Con el siguiente por ejemplo, se define una variable que puede recibir como valor una función la cual no recibe parámetros y que devuelve un string: `let myFunction: () => string`
+
+El ciclo _for of_ nos permite recorrer un arreglo (o cualquier otro iterable como string o NodeList) de forma más sencilla, a diferencia del _for in_ que esta orientado a recorrer las propiedades de un objeto.
+
+### Clases
+
+- **Public**: permite que la propiedad/método sea vista por fuera de la clase
+- **Private**: indica que solo se tiene acceso a la propiedad/método dentro de la clase
+- **Static**: permite acceder a una propiedad/método sin necesidad de crear una instancia, solo haciendo referencia a la clase
+- **Protected**: permite acceder a una propiedad/método dentro que clases que extienden de otras
+- **Set**: es un método que recibe un solo parámetro y establecerlo dentro de la clase
+- **Get**: método para obtener algo, este siempre debe devolver algún dato y a diferencia de una función no es necesario invocarlo con los ()
+- **Extends**: permite heredar de otra clase sus métodos y propiedades
+- **Abstract**: no permite crear instancias, es una clase que sirve para crear otras clases o asegurarse que otras clases implementen lo que se espera, tambíen sirve para indicar que se espera un objecto o argumento que tenga el tipo/característica de la clase abstracta
