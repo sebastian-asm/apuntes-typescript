@@ -42,6 +42,7 @@ TypeScript permite crear nuevos tipos de datos como: interfaces, genéricos y tu
 - **Void**: es una forma de indicar que no hay un valor de retorno
 - **Never**: indica que algo, por ejemplo una función, no debe terminar de manera exitosa sino con un error
 - **Type**: palabra reservada para definir un tipo, o sea, asignar reglas o "contratos" a un objeto o variable que debe cumplir
+- **Interface**: muy similar al type siendo la única diferencia que las interfaces son expandibles, o sea, poder agregar más propiedades según se vayan necesitando. Con _implements_ se puede relacionar una interface a una clase
 
 Una función puede recibir parámetros opcionales especificados con el símbolo _?_, estos valores opcionales siempre debe ir al final. También se pueden indicar valores por default con el símbolo _=_. Se pueden capturar parámetros de manera indefinida mediante la sintáxis _rest_ (...).
 

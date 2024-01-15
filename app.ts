@@ -125,3 +125,43 @@ const printName = (character: Mutante) => {
   console.log(character.realName)
 }
 printName(cyclops)
+
+// Interfaces
+interface Client {
+  name: string
+  age: number
+  address?: Address
+}
+
+interface Address {
+  id: number
+  zip: string
+  city: string
+}
+
+const client: Client = {
+  name: 'Belu',
+  age: 39
+}
+
+// Interface para una función
+interface CiudadGotica {
+  (ciudadanos: string[]): number
+}
+
+const ciudadGotica: CiudadGotica = (ciudadanos: string[]) => {
+  return ciudadanos.length
+}
+
+interface Xmen {
+  name: string
+  realName: string
+  mutantPower(id: number): string
+}
+
+class Mutant implements Xmen {
+  constructor(public name: string, public realName: string) {}
+  mutantPower(id: number): string {
+    return ``
+  }
+}
