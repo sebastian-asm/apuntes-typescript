@@ -159,9 +159,19 @@ interface Xmen {
   mutantPower(id: number): string
 }
 
-class Mutant implements Xmen {
-  constructor(public name: string, public realName: string) {}
+interface Power {
+  powerAttack?: number
+}
+
+class Mutant implements Xmen, Power {
+  constructor(public name: string, public realName: string, public powerAttack: number) {}
   mutantPower(id: number): string {
     return ``
   }
 }
+
+// Namespace
+namespace Validations {
+  export const validateText = (text: string) => (text.length < 3 ? false : true)
+}
+console.log(Validations.validateText('Seba'))

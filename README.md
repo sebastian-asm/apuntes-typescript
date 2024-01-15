@@ -64,3 +64,24 @@ El ciclo _for of_ nos permite recorrer un arreglo (o cualquier otro iterable com
 - **Get**: método para obtener algo, este siempre debe devolver algún dato y a diferencia de una función no es necesario invocarlo con los ()
 - **Extends**: permite heredar de otra clase sus métodos y propiedades
 - **Abstract**: no permite crear instancias, es una clase que sirve para crear otras clases o asegurarse que otras clases implementen lo que se espera, tambíen sirve para indicar que se espera un objecto o argumento que tenga el tipo/característica de la clase abstracta
+
+### NameSpaces, Imports y Exports
+
+Se utilizan para encapsular y agrupar el código para prevenir conflictos de nombres, y exponer mediante _export_ lo que se necesite. Aunque son similares a los módulos comunmente no son tan utilizadas en el desarrollo en vista que los frameworks ya lo estan utilizando en una capa más abajo.
+
+Actualmente lo más utilizado son los _imports_ y _exports_ para modularizar el código, ya sean clases, funciones, arreglos, funciones, variables, etc.
+
+```ts
+// Export: hero.ts
+export class Hero {
+  constructor(public name: string, public age: number) {}
+}
+
+// Import: app.ts
+import { Hero } from './Hero'
+const hero = new Hero('test', 123)
+```
+
+- **Alias**: permite mediante un _as_ asignar un nuevo nombre a la importación para que no choque con otras variables, en caso de existir una con el mismo nombre: `import { Hero as SuperHero } from './Hero'`
+- **\***: crear una sola instancia de todas las exportaciones de un archivo: `import * as Hero from './Hero'`
+- **Default**: una exportación por default es declarar una exportación principal e independiente, pero de todas formas se puede seguir haciendo otras exportaciones del mismo archivo: `export default Hero`
