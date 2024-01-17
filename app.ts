@@ -201,3 +201,49 @@ const getPokemon = async (pokemonId: number): Promise<Pokemon> => {
 getPokemon(1)
   .then(({ name, sprites }) => console.log(name, sprites.front_default))
   .catch((error) => console.log(error))
+
+// Decoradores
+function printToConsole(constructor: Function) {
+  console.log(constructor)
+}
+
+const lockPrototype = function (constructor: Function) {
+  Object.seal(constructor)
+  Object.seal(constructor.prototype)
+}
+
+// Factory decorators
+const printToConsoleConditional = (print: boolean = false): Function => {
+  return print ? printToConsole : () => {}
+}
+
+function checkValidPokemon() {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    // console.log({ target, propertyKey, descriptor })
+    // El descriptor solo aplica cuando se decora un método
+    const originalMethod = descriptor.value
+    descriptor.value = (id: number) => {
+      if (id < 1 || id > 850) return console.error('El rango debe ser entre 1 a 850')
+      else return originalMethod(id)
+    }
+  }
+}
+
+// @printToConsole
+@lockPrototype
+@printToConsoleConditional(false)
+class Pokemon {
+  public url: string = 'https://pokeapi.co'
+  constructor(public name: string) {}
+
+  @checkValidPokemon()
+  saveToDb(id: number) {
+    console.log(`Pokemon id ${id} guardado en db`)
+  }
+}
+const pokemon = new Pokemon('Charmander')
+
+// Con el decorador ya no se puede expandir la clase
+// ;(Pokemon.prototype as any).customName = 'demo'
+
+pokemon.saveToDb(1)

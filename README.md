@@ -98,3 +98,11 @@ function genericFn<T>(arg: T): T {
   return arg
 }
 ```
+
+### Decoradores
+
+Es una función (definida por una @) que se ejecuta en el momento de compilación/transpilación y permite expandir las funcionalidades de una clase, método o propiedad. Se pueden ir anidando tantos como sean necesarios y se ejecutarán de forma secuencial.
+
+Aunque es una caracteristica bastante utilizada en varios frameworks aún se considera experimental y para poder habilitarla en TS, desde el archivo tscondif.json se descomenta la opción _experimentalDecorators_.
+
+- **Factory Decorators**: función que devuelve otra función que termina siendo ejecutada
