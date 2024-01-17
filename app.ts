@@ -175,3 +175,29 @@ namespace Validations {
   export const validateText = (text: string) => (text.length < 3 ? false : true)
 }
 console.log(Validations.validateText('Seba'))
+
+// Genéricos
+function genericFn<T>(arg: T): T {
+  return arg
+}
+console.log(genericFn(123).toFixed(2))
+console.log(genericFn('test').toUpperCase())
+console.log(genericFn(new Date()).getFullYear())
+
+const genericFn2 = <T>(arg: T) => arg
+
+interface Pokemon {
+  name: string
+  sprites: {
+    front_default: string
+  }
+}
+
+const getPokemon = async (pokemonId: number): Promise<Pokemon> => {
+  const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
+  const data: Pokemon = await resp.json()
+  return data
+}
+getPokemon(1)
+  .then(({ name, sprites }) => console.log(name, sprites.front_default))
+  .catch((error) => console.log(error))

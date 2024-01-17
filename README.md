@@ -85,3 +85,16 @@ const hero = new Hero('test', 123)
 - **Alias**: permite mediante un _as_ asignar un nuevo nombre a la importación para que no choque con otras variables, en caso de existir una con el mismo nombre: `import { Hero as SuperHero } from './Hero'`
 - **\***: crear una sola instancia de todas las exportaciones de un archivo: `import * as Hero from './Hero'`
 - **Default**: una exportación por default es declarar una exportación principal e independiente, pero de todas formas se puede seguir haciendo otras exportaciones del mismo archivo: `export default Hero`
+
+### Genéricos
+
+Nos ayudan a que se devuelva el mismo tipo del que se recibe, por ejemplo, si una función recibe un number o string, esa función debería devolver ese mismo tipo para tener todos los métodos y propiedades correspondientes.
+
+```ts
+// Comunmente se utiliza <T> para los tipos genéricos
+// La función recibe un valor genérico y los parámetros serán
+// de ese mismo valor, al igual que el valor de la salida
+function genericFn<T>(arg: T): T {
+  return arg
+}
+```
